@@ -16,20 +16,37 @@ if(isset($_POST["num"])){
 		foreach($nummers as $nummer) {
 			$totaal += $nummer;
 		}
-		$average = ($totaal / $nummer_count);
+		$Gemiddelde = ($totaal / $nummer_count);
 
 
 	}
-	echo (isset($average)) ? $average : "";
+
+ $bovenGemiddelde = "";
+foreach ($nummers as $nummer){
+    if ($nummer > $Gemiddelde) {
+		$bovenGemiddelde .= $nummer . ",";
+		
+    }
+}
+
+
+	echo (isset($Gemiddelde)) ? "Gemiddelde: " . $Gemiddelde : "", '<br>';
 	
+	
+	if(empty($errors)){
+	echo (isset($bovenGemiddelde)) ? "Boven Gemiddelde : " .  $bovenGemiddelde : "";
+	};
+	
+	
+
+
 	if(isset($errors) && !empty($errors)){
 		foreach($errors as $error){
 			echo $error, '<br>';
 		}
 	}
-
+	
 }
-
 
 
 
