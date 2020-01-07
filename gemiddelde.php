@@ -22,20 +22,24 @@ if(isset($_POST["num"])){
 	}
 
  $bovenGemiddelde = "";
+ $bovenGemiddeldeArray = Array();
 foreach ($nummers as $nummer){
     if ($nummer > $Gemiddelde) {
 		$bovenGemiddelde .= $nummer . ",";
-		
+		$bovenGemiddeldeArray[] = $nummer;
     }
 }
+
 
 
 	echo (isset($Gemiddelde)) ? "Gemiddelde: " . $Gemiddelde : "", '<br>';
 	
 	
 	if(empty($errors)){
-	echo (isset($bovenGemiddelde)) ? "Boven Gemiddelde : " .  $bovenGemiddelde : "";
+	echo (isset($bovenGemiddelde)) ? "Boven Gemiddelde nummers : " .  $bovenGemiddelde : "", '<br>';
+	echo (isset($bovenGemiddeldeArray)) ? "Hoeveel boven gemiddelde : " . count ($bovenGemiddeldeArray) : "", '<br';
 	};
+
 	
 	
 
